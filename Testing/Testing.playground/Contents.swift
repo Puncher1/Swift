@@ -48,21 +48,21 @@ else{
 
 // for loop
 var list:Array = ["hello", "world"]
-var sum:Int = 0
+var s:Int = 0
 
 for i in 1...3{
     print(i)
 }
 
 for _ in 1...10{
-    sum += 1
+    s += 1
 }
 
 for c in list{
     print(c)
 }
 
-print(sum)
+print(s)
 
 
 // while loop
@@ -83,3 +83,117 @@ repeat{
     count2 -= 1
     
 }while count2 > 0
+
+
+// Functions
+func sumTwoNumbers(){
+    let a = 1
+    let b = 2
+    let c = a + b
+    print("Sum: \(c)")
+}
+sumTwoNumbers()
+
+func sum(a: Int, b: Int) -> Int{
+    
+    return a+b
+}
+print(sum(a: 2, b: 10))
+
+func strlen(string: String) -> Int {
+    var count:Int = 0
+    for _ in string{
+        count += 1
+    }
+    return count
+}
+var str = "Puncher"
+var lengthString = strlen(string: str)
+print("Length of \(str): \(lengthString)")
+
+
+// Classes
+class human{
+    var name:String = ""
+    var age:Int = 0
+    var size:Float = 0
+    
+    func incrSize(){
+        size += 0.01
+    }
+    
+    func decrSize(){
+        size -= 0.01
+    }
+}
+
+let human1 = human()
+human1.name = "Tom"
+human1.age = 34
+human1.size = 1.65
+human1.decrSize()
+human1.decrSize()
+
+
+let human2 = human()
+human2.name = "Max"
+human2.age = 27
+human2.size = 1.91
+human2.incrSize()
+
+print(human1.name, human1.age, human1.size)
+print(human2.name, human2.age, human2.size)
+
+
+// Inheritance (Subclasses)
+class Car{
+    var topSpeed = 200
+    
+    func drive(){
+        print("Driving at \(topSpeed)")
+    }
+    
+}
+
+class FutureCar : Car{
+    
+    override func drive() {
+        super.drive()                         // executing drive of superclass
+        print("Driving at \(topSpeed + 50)")
+    }
+    
+    func fly(){
+        print("Flying")
+    }
+}
+
+let myRide = Car()
+myRide.drive()
+
+let myNewRide = FutureCar()
+myNewRide.topSpeed = 300
+myNewRide.drive()
+myNewRide.fly()
+
+
+// Initialization (Init)
+class Person {
+    
+    var name:String = ""
+    var age:Int = 0
+    var size:Float = 0
+    
+    init(name: String, age: Int, size: Float){
+        self.name = name
+        self.age = age
+        self.size = size
+    }
+}
+let person1 = Person(name: "Puncher", age: 16, size: 1.75)
+let person2 = Person(name: "Steve", age: 55, size: 1.97)
+print(person1.name, person1.age, person1.size)
+print(person2.name, person2.age, person2.size)
+
+
+// Optionals
+
