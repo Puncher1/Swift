@@ -179,7 +179,7 @@ myNewRide.fly()
 // Initialization (Init)
 class Person {
     
-    var name:String = ""
+    var name:String = "No name"
     var age:Int = 0
     var size:Float = 0
     
@@ -224,4 +224,76 @@ if blog1.title != nil{          // best and easiest way to unwrap (works if 'nil
     print(blog1.title!)         //
 }
 
+
+// Properties
+class Author{
+    var name = ""
+}
+
+class BlogPost {
+    
+    // Computed property
+    var fullTitle:String {
+        
+        // Check title and author
+        if title != nil && author != nil{
+            return title! + " by " + author!.name
+        }
+        else if title != nil{
+            return title!
+        }
+        else{
+            return "No title"
+        }
+        
+    }
+    
+    var title:String?
+    var body = "hello world"
+    var author:Author?
+    var numberOfComments = 0
+    
+}
+
+let author = Author()
+author.name = "Puncher"
+
+let myPost = BlogPost()
+myPost.author = author
+myPost.title = "Swift Programming Testing"
+print(myPost.fullTitle)
+
+
+// Designated & Convenience Initializer (init)
+class Person2{
+    
+    var name = ""
+    
+}
+
+class BlogPost2 {
+    
+    var title:String               // has to get declared -> at 'init()'
+    var body = "hello world"
+    var author:Person2
+    var numberOfComments = 0
+    
+    // Designated init (makes sure that properties are initialized before use)
+    init() {
+        title = "My Title"         // default value
+        author = Person2()
+    }
+    
+    // Convenience init (to change properties)
+    convenience init(customTitle:String) {   // to change 'title'
+        self.init()          // init for properties which doesn't get overwritten
+        title = customTitle
+    }
+}
+
+let post2 = BlogPost2()
+print(post2.title)
+
+let post3 = BlogPost2(customTitle: "A Custom Title")
+print(post3.title)
 
