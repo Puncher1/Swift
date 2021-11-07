@@ -196,4 +196,32 @@ print(person2.name, person2.age, person2.size)
 
 
 // Optionals
+class myBlog{
+    
+    // var title = ""
+    // var body = ""
+    // var author = ""
+    // var numberOfComments = 0
+
+    var title:String?
+    var body:String?
+    var author:String?
+    var numberOfComments:Int?
+    
+}
+
+let blog1 = myBlog()
+blog1.title = "Blog X"
+print(blog1.title)              // not unwrapped
+
+if let title = blog1.title{     // raw unwrapping | 'Optional("Blog X")' -> "Blog X"
+    print(title)
+}
+
+print(blog1.title!)             // better unwrapping (only works if not 'nil')
+
+if blog1.title != nil{          // best and easiest way to unwrap (works if 'nil' or not)
+    print(blog1.title!)         //
+}
+
 
