@@ -21,6 +21,7 @@ print(x+y)
 print(x-y)
 
 
+
 // Data types
 var myName:String = "Puncher"
 var myAge:Int = 16
@@ -29,6 +30,7 @@ var myGender:String = "Male"
 
 var mySentence:String = "My name is " + myName + " and I'm " + String(myAge) + " years old. My gender is " + myGender + " and my grade is " + String(myGrade) + "."
 print(mySentence)
+
 
 
 // If statements
@@ -44,6 +46,7 @@ else if num >= 10 || num2 >= 10{
 else{
     print("bad")
 }
+
 
 
 // for loop
@@ -65,6 +68,7 @@ for c in list{
 print(s)
 
 
+
 // while loop
 var count:Int = 1
 
@@ -75,6 +79,7 @@ while count <= 4{
 }
 
 
+
 // repeat while loop (do while in C)
 var count2:Int = 1
 
@@ -83,6 +88,7 @@ repeat{
     count2 -= 1
     
 }while count2 > 0
+
 
 
 // Functions
@@ -110,6 +116,7 @@ func strlen(string: String) -> Int {
 var str = "Puncher"
 var lengthString = strlen(string: str)
 print("Length of \(str): \(lengthString)")
+
 
 
 // Classes
@@ -145,6 +152,7 @@ print(human1.name, human1.age, human1.size)
 print(human2.name, human2.age, human2.size)
 
 
+
 // Inheritance (Subclasses)
 class Car{
     var topSpeed = 200
@@ -176,6 +184,7 @@ myNewRide.drive()
 myNewRide.fly()
 
 
+
 // Initialization (Init)
 class Person {
     
@@ -193,6 +202,7 @@ let person1 = Person(name: "Puncher", age: 16, size: 1.75)
 let person2 = Person(name: "Steve", age: 55, size: 1.97)
 print(person1.name, person1.age, person1.size)
 print(person2.name, person2.age, person2.size)
+
 
 
 // Optionals
@@ -223,6 +233,7 @@ print(blog1.title!)             // better unwrapping (only works if not 'nil')
 if blog1.title != nil{          // best and easiest way to unwrap (works if 'nil' or not)
     print(blog1.title!)         //
 }
+
 
 
 // Properties
@@ -264,6 +275,7 @@ myPost.title = "Swift Programming Testing"
 print(myPost.fullTitle)
 
 
+
 // Designated & Convenience Initializer (init)
 class Person2{
     
@@ -297,3 +309,53 @@ print(post2.title)
 let post3 = BlogPost2(customTitle: "A Custom Title")
 print(post3.title)
 
+
+
+// Arrays (additional things)
+var strArray = [String]()          // empty array which only takes strings
+var intArray = [Int]()             // empty array which only takes integers
+
+strArray += ["Dog", "Cat"]
+strArray.append(contentsOf: ["Mouse"])
+
+intArray += [100, 9, 5, 2, 1343]
+intArray.append(contentsOf: [2123])
+
+print(strArray)
+print(intArray)
+
+strArray.remove(at: 0)              // at: Index of item
+print(strArray)
+
+
+
+// Dictionaries
+var carDB = Dictionary<String, String>()    // empty dict which stores key and value as a
+                                            // String
+
+// Declaring new Dict
+var carDB2 = [String:String]()              // easier way
+
+// Adding key value pairs
+carDB2["JSD 238"] = "Blue Ferrari"          // key = value
+carDB2["SID 48"] = "Green Lamborghini"
+carDB2["MEY 45"] = "White Porsche Taycan"
+
+print(carDB2)
+
+// Retrieving data
+print(carDB2["JSD 238"]!)
+print(carDB2["ASD 238"])                    // nil
+
+// Update a value for a key
+carDB2["JSD 238"] = "Red Ferrari"
+print(carDB2["JSD 238"]!)
+
+// Remove a key-value pair
+carDB2["JSD 238"] = nil
+print(carDB2)
+
+// Iterating through dict
+for (key, value) in carDB2 {
+    print("\(key) is the license of \(carDB2[key]!)")
+}
